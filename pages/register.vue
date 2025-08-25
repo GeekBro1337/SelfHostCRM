@@ -1,12 +1,13 @@
 <script setup lang="ts">
+defineOptions({ name: "RegisterPage" });
 const email = ref("");
 const password = ref("");
 const submit = async () => {
-  const res = await $fetch("/api/auth/register", {
+  const res = await $fetch<{ ok: boolean }>("/api/auth/register", {
     method: "POST",
     body: { email: email.value, password: password.value },
   });
-  if ((res as any).ok) await navigateTo("/login");
+  if (res.ok) await navigateTo("/login");
 };
 </script>
 
@@ -17,15 +18,13 @@ const submit = async () => {
       v-model="email"
       type="email"
       placeholder="email"
-      class="border p-2 w-full"
-    />
+      class="border p-2 w-full">
     <input
       v-model="password"
       type="password"
       placeholder="password"
-      class="border p-2 w-full"
-    />
-    <button @click="submit" class="bg-black text-white px-4 py-2 rounded">
+      class="border p-2 w-full">
+    <button class="bg-black text-white px-4 py-2 rounded" @click="submit">
       Register
     </button>
     <p class="text-sm">

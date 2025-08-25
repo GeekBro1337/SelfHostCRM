@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineOptions({ name: "LoginPage" });
 const { signIn, status } = useAuth();
 const email = ref("");
 const password = ref("");
@@ -20,15 +21,13 @@ const onSubmit = async () => {
       v-model="email"
       type="email"
       placeholder="email"
-      class="border p-2 w-full"
-    />
+      class="border p-2 w-full">
     <input
       v-model="password"
       type="password"
       placeholder="password"
-      class="border p-2 w-full"
-    />
-    <button @click="onSubmit" class="bg-black text-white px-4 py-2 rounded">
+      class="border p-2 w-full">
+    <button class="bg-black text-white px-4 py-2 rounded" @click="onSubmit">
       Login
     </button>
     <p v-if="status === 'loading'">Загрузка…</p>
