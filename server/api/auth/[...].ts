@@ -1,6 +1,6 @@
 import Credentials from "@auth/core/providers/credentials";
 import { NuxtAuthHandler } from "#auth";
-import { prisma } from "@/server/utils/prisma";
+import { prisma } from "../../utils/prisma";
 import bcrypt from "bcryptjs";
 
 export default NuxtAuthHandler({
