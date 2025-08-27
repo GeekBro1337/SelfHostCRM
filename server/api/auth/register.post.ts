@@ -1,4 +1,4 @@
-import { prisma } from "@/server/utils/prisma";
+import { prisma } from "../../utils/prisma";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 
